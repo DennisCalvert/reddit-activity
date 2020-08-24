@@ -1,4 +1,4 @@
-const localSettings = require('./config.local');
+// const localSettings = require('./config.local');
 
 const settings = {
     MONGO_URI: null,
