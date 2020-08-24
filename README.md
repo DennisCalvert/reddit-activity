@@ -1,1 +1,1 @@
-# reddit-activity
+# reddit-active-users
