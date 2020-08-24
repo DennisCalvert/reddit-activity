@@ -76,12 +76,12 @@ const settings = {
     ],
 };
 
-const settingsWithLocal = Object.keys(settings).reduce((a, key) => {
-    a[key] = localSettings && localSettings[key] || settings[key];
-    return a;
-}, {});
+// const settingsWithLocal = Object.keys(settings).reduce((a, key) => {
+//     a[key] = localSettings && localSettings[key] || settings[key];
+//     return a;
+// }, {});
 
-module.exports = Object.keys(settingsWithLocal).reduce((a, key) => {
+module.exports = Object.keys(settings).reduce((a, key) => {
     a[key] = process.env[key] || settingsWithLocal[key];
     return a;
 }, {});
