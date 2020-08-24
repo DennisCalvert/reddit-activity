@@ -82,6 +82,6 @@ const settings = {
 // }, {});
 
 module.exports = Object.keys(settings).reduce((a, key) => {
-    a[key] = process.env[key] || settingsWithLocal[key];
+    a[key] = process.env[key] || settings[key];
     return a;
 }, {});
