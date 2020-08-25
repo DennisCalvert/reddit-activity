@@ -20,6 +20,7 @@ const main = async () => {
     const data = await Promise.all(SUBS.map(handleSub));
     const db = await mongo.init('reddit-active-users');
     await db.create(data);
+    console.log('UPdated Reddit active User Info');
 };
 
 main();
