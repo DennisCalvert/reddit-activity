@@ -9,7 +9,7 @@ const handleSub = async (sub) => {
             sub: sub,
             subscribers: res.data.data.subscribers,
             activeUsers: res.data.data.active_user_count,
-            time: Date.now(),
+            time: new Date(Date.now()).toISOString(),
         };
     } catch (error) {
         console.log(sub, 'not found');
@@ -17,10 +17,12 @@ const handleSub = async (sub) => {
 };
 
 const main = async () => {
+    console.log('Fetching Subreddits...');
     const data = await Promise.all(SUBS.map(handleSub));
+    console.log('Saving to Mongo');
     const db = await mongo.init('reddit-active-users');
     await db.create(data);
-    console.log('UPdated Reddit active User Info');
+    console.log('Updated Reddit active User Info');
 };
 
 main();
