@@ -9,7 +9,7 @@ const handleSub = async (sub) => {
             sub: sub,
             subscribers: res.data.data.subscribers,
             activeUsers: res.data.data.active_user_count,
-            time: new Date(Date.now()).toISOString(),
+            time: new Date(Date.now()),
         };
     } catch (error) {
         console.log(sub, 'not found');
